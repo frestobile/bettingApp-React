@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  cursor: default;
+}
+
+.middle-area {
+  height: calc(100vh - 347px);
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  font-style: normal;
+  font-weight: 400;
+  src: url('./assets/fonts/Montserrat/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat-bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('./assets/fonts/Montserrat/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Montserrat-semi';
+  font-style: normal;
+  font-weight: 600;
+  src: url('./assets/fonts/Montserrat/Montserrat-SemiBold.ttf') format('truetype');
+}
+
+@keyframes fade_in_modal {
+  0% {
+    opacity: 0;
+    /* transform: translateY(100px); */
+  }
+  100% {
+    opacity: 1;
+    /* transform: translateY(0px); */
+  }
+}
+
+.fade_modal {
+  animation: fade_in_modal 0.6s ease-in-out;
+}
+
+.custom-borders {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  pointer-events: none;
+  position: absolute;
+  width: 100%;
+}
+
+.custom-borders .custom-border {
+  border-width: 1px;
+  border-style: solid;
+  transition-duration: 0.4s;
+  transition-property: border-color, width;
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.custom-borders .custom-middle {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.custom-borders .custom-middle .custom-top-borders {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.custom-borders .custom-middle .custom-top-borders .custom-border {
+  border-width: 1px 0 0;
+  flex: unset;
+}
+
+.custom-borders .custom-middle .custom-top-borders .custom-border.custom-start {
+  width: 5px;
+}
+
+.custom-borders .custom-middle .custom-border {
+  flex: 1 1 auto;
+  width: 100%;
+}
+
+.custom-borders .custom-middle .custom-border.custom-bottom {
+  border-width: 0 0 1px 0;
+}
+
+.custom-borders .custom-right,
+.custom-borders .custom-left {
+  width: 4px;
+}
+
+.custom-borders .custom-left {
+  border-radius: 4px 0 0 4px;
+  border-width: 1px 0 1px 1px;
+}
+
+.custom-borders .custom-right {
+  border-radius: 0 4px 4px 0;
+  border-width: 1px 1px 1px 0;
+}
+
+._focused.custom-borders .custom-top-borders .custom-start {
+  width: 0;
+}
+
+._focused.custom-borders .custom-top-borders .custom-end {
+  width: calc(100% - var(--label-active-width) - 17px);
+}
+
+._focused.custom-borders .custom-top-borders .custom-border {
+  border-width: 1px 0 0;
+}
+
+._focused.custom-borders .custom-border {
+  border-color: #f8bf60;
+}
+
+._focused.custom-borders .custom-border.custom-bottom {
+  border-width: 0 0 1px 0;
+}
+
+._focused.custom-borders .custom-border.custom-left {
+  border-width: 1px 0 1px 1px;
+}
+
+._focused.custom-borders .custom-border.custom-right {
+  border-width: 1px 1px 1px 0;
+}
+
+._invalid.custom-borders .custom-border {
+  border-color: #ed2a1d !important;
+}
+
+.custom-border-none.custom-borders:not(._invalid) * {
+  border: none;
+}
+
+label.reference.floating {
+  position: absolute;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(calc(-100% * 5));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
